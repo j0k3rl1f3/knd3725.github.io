@@ -152,6 +152,26 @@ section:last-of-type {
   color: #ffffff;
 }
 
+.section-bg .project-card,
+.section-bg .project-card h3,
+.section-bg .project-card p,
+.section-bg .project-card li {
+  color: var(--text);
+}
+
+.section-bg .project-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+}
+
+.section-bg .project-card .project-meta {
+  color: #6b7280;
+}
+
+.section-bg .project-card .project-links a {
+  color: var(--accent);
+}
+
 .section-bg .highlight {
   background: rgba(219, 234, 254, 0.18);
   border-left-color: rgba(255, 255, 255, 0.7);
