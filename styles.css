@@ -164,10 +164,16 @@ section:last-of-type {
 }
 
 .section-bg h2,
+.section-bg h3,
 .section-bg p,
 .section-bg li,
 .section-bg label {
   color: #ffffff;
+}
+
+.section-bg h2,
+.section-bg h3 {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
 }
 
 .section-bg input,
@@ -237,6 +243,11 @@ section:last-of-type {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1rem;
+}
+
+.social-note {
+  flex: 0 0 100%;
+  margin: 0.25rem 0 0;
 }
 
 section h2 {
