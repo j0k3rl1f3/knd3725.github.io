@@ -71,6 +71,12 @@
                   </a>
                 </li>
                 <li>
+                  <a href="https://endfield.gryphline.com/landing/ua/obt?hg_media=google&hg_link_code=5wXMqijS&hg_campaign_id=23483537434&hg_adset_id=197530168048&hg_keyword_id=arknights+endfield&lang=en-us&gad_source=1&gad_campaignid=23483537434&gclid=Cj0KCQjw9-PNBhDfARIsABHN6-3uVmwv_s6zTS-dKdncLlvus1UHES6Fd2krI-kI-cxWixz9gbqrz-AaAgm5EALw_wcB" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/endfield.jpg" alt="" aria-hidden="true" />
+                    <span>Arknights: Endfield</span>
+                  </a>
+                </li>
+                <li>
                   <a href="https://duetnightabyss.dna-panstudio.com" target="_blank" rel="noopener noreferrer">
                     <img src="assets/dna.jpg" alt="" aria-hidden="true" />
                     <span>Duet Night Abyss</span>
@@ -119,6 +125,24 @@
             <a class="button" href="https://www.youtube.com/@knd_3725" target="_blank" rel="noopener noreferrer">Youtube</a>
             <p class="social-note">Add my Discord: kanade_3725</p>
           </div>
+        </section>
+
+        <section
+          id="video"
+          class="section-bg"
+          style="--section-bg-image: url('assets/kanade3.png'); --section-bg-brightness: 0.52; --section-overlay-opacity: 0.92;"
+        >
+          <h2>Extra</h2>
+          <p class="highlight">Some additional material I’m keeping here for later.</p>
+          <details class="video-details">
+            <summary>Open reference clip</summary>
+            <div class="video-embed" aria-label="Embedded video">
+              <video controls preload="metadata" autoplay muted playsinline>
+                <source src="assets/rickroll.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </details>
         </section>
 
         <section
@@ -248,6 +272,38 @@
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     update();
+  })();
+
+  // ── Auto-play local video when opened ────────────────────────────
+  (function () {
+    const details = document.querySelector(".video-details");
+    if (!details) return;
+
+    const video = details.querySelector("video");
+    if (!video) return;
+
+    function playFromStart() {
+      try {
+        video.currentTime = 0;
+      } catch (_) {}
+      // Autoplay may be blocked unless muted; we already set muted.
+      video.play().catch(() => {});
+    }
+
+    // Try once on load (works if autoplay allowed)
+    playFromStart();
+
+    // Reset to start whenever it's closed/opened again
+    details.addEventListener("toggle", () => {
+      if (details.open) {
+        playFromStart();
+      } else {
+        video.pause();
+        try {
+          video.currentTime = 0;
+        } catch (_) {}
+      }
+    });
   })();
     </script>
   </body>
