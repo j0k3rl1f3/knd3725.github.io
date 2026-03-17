@@ -33,7 +33,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("assets/c__Users_jackw_OneDrive_Documents_IYO_knd3725_card_normal.png");
+  background-image: url("assets/haru.png");
   background-size: cover;
   background-position: center;
   filter: brightness(0.55);
@@ -141,8 +141,10 @@ section:last-of-type {
   background-image: var(--section-bg-image, none);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   filter: brightness(var(--section-bg-brightness, 0.55));
-  transform: scale(1.02);
+  transform-origin: center;
+  transform: rotate(var(--section-bg-rotate, 0deg)) scale(var(--section-bg-scale, 1.02));
 }
 
 .section-bg::after {
@@ -168,7 +170,7 @@ section:last-of-type {
 .section-bg p,
 .section-bg li,
 .section-bg label {
-  color: #ffffff;
+  color: var(--section-fg, #ffffff);
 }
 
 .section-bg h2,
@@ -201,8 +203,8 @@ section:last-of-type {
 }
 
 .section-bg .highlight {
-  background: rgba(219, 234, 254, 0.18);
-  border-left-color: rgba(255, 255, 255, 0.7);
+  background: var(--section-highlight-bg, rgba(219, 234, 254, 0.18));
+  border-left-color: var(--section-highlight-border, rgba(255, 255, 255, 0.7));
 }
 
 .section-bg .project-card,
@@ -248,6 +250,37 @@ section:last-of-type {
 .social-note {
   flex: 0 0 100%;
   margin: 0.25rem 0 0;
+}
+
+.game-list {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.game-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.85rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.game-list img {
+  width: 44px;
+  height: 44px;
+  border-radius: 0.8rem;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.game-list span {
+  line-height: 1.2;
 }
 
 section h2 {
