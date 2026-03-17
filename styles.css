@@ -6,6 +6,9 @@
   --font-base: system-ui, -apple-system, BlinkMacSystemFont,
   "Segoe UI", sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
 * {
   box-sizing: border-box;
 }
@@ -101,6 +104,10 @@ section {
   border-bottom: 1px solid #e5e7eb;
 }
 
+section[id] {
+  scroll-margin-top: 1.25rem;
+}
+
 section:last-of-type {
   border-bottom: none;
 }
@@ -123,7 +130,7 @@ section:last-of-type {
   background-image: var(--section-bg-image, none);
   background-size: cover;
   background-position: center;
-  filter: brightness(0.55);
+  filter: brightness(var(--section-bg-brightness, 0.55));
   transform: scale(1.02);
 }
 
@@ -137,7 +144,7 @@ section:last-of-type {
     rgba(17, 24, 39, 0.25) 55%,
     rgba(17, 24, 39, 0.1) 100%
   );
-  opacity: 0.9;
+  opacity: var(--section-overlay-opacity, 0.9);
 }
 
 .section-bg > * {
@@ -150,6 +157,35 @@ section:last-of-type {
 .section-bg li,
 .section-bg label {
   color: #ffffff;
+}
+
+.section-bg input,
+.section-bg textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  font-family: inherit;
+}
+
+.section-bg textarea {
+  resize: vertical;
+}
+
+.section-bg input::placeholder,
+.section-bg textarea::placeholder {
+  color: rgba(17, 24, 39, 0.6);
+}
+
+.section-bg #form-status {
+  margin-top: 0.75rem;
+}
+
+.section-bg .highlight {
+  background: rgba(219, 234, 254, 0.18);
+  border-left-color: rgba(255, 255, 255, 0.7);
 }
 
 .section-bg .project-card,
@@ -170,11 +206,6 @@ section:last-of-type {
 
 .section-bg .project-card .project-links a {
   color: var(--accent);
-}
-
-.section-bg .highlight {
-  background: rgba(219, 234, 254, 0.18);
-  border-left-color: rgba(255, 255, 255, 0.7);
 }
 
 .button.button-outline {
