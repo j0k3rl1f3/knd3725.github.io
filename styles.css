@@ -232,6 +232,13 @@ section:last-of-type {
   box-shadow: none;
 }
 
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
 section h2 {
   font-size: 1.4rem;
   margin-bottom: 0.75rem;
